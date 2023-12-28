@@ -24,9 +24,9 @@ const bikeSchema = new Schema(
       type: String,
       required: [true, "Set price for bike"],
     },
-    id: {
+    number: {
       type: String,
-      required: [true, "Set id for bike"],
+      required: [true, "Set number for bike"],
     },
     description: {
       type: String,
@@ -41,10 +41,5 @@ const bikeSchema = new Schema(
 
 bikeSchema.post("save", mongooseError);
 
-const updateAvailableSchema = Joi.object({
-  status: Joi.string().required(),
-});
-module.exports = updateAvailableSchema;
-
-const Bike = model("contact", bikeSchema);
+const Bike = model("bike", bikeSchema);
 module.exports = Bike;
