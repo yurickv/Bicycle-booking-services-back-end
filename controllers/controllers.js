@@ -1,10 +1,13 @@
 const Bike = require("../models/bikeModel");
 
-const { HttpError, ctrlWrapper } = require("../helpers");
+const { HttpError, ctrlWrapper, analyzeBikeData } = require("../helpers");
 
 const getAll = async (req, res) => {
   const result = await Bike.find();
-  res.status(200).json(result);
+  const quantity = analyzeBikeData(result);
+  console.log(quantity);
+  const responce = { data: result, statistic: quantity };
+  res.status(200).json(responce);
 };
 
 const getById = async (req, res) => {

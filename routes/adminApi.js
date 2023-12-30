@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const ctrl = require("../controlers/controllers");
+const ctrl = require("../controllers/controllers");
 
 const { validateBody, isValidId } = require("../middlewares");
 const { validSchema } = require("../helpers");
